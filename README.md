@@ -1,5 +1,6 @@
 # COMP3000-Computing-Project---Interactive-Platformer-Rhythm-Game
-This is the github repository for my comp3000 final year project
+This is the github repository for my comp3000 final year project.
+Link to Gantt Chart - https://tasks.office.com/live.plymouth.ac.uk/Home/PlanViews/C5oJ7vjWr027gDMxuocIMJYACYs_?Type=PlanLink&Channel=Link&CreatedTime=638333456722730000
 
 My vision for this project is to create a game that a user can interact with like a platformer and use the music being produced by the application as a means to traverse.
 
