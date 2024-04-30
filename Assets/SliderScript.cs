@@ -15,7 +15,7 @@ public class SliderScript : MonoBehaviour
 
 
 
-    public void PlayFile(string fileName)
+    public void PlayFile(string fileName)//used to play the selected music in the create scene, loads to song in the same way as the playscript
     {
         songPlaying = false;
         //string path = "D:/Unity Projects/COMP3000 Animal Frets/Assets/MP3Folder/trap-future-bass-royalty-free-music-167020.mp3";
@@ -56,7 +56,7 @@ public class SliderScript : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    void Start()//runs the loadandplay coroutine
     {
         PlayFile(CreateDropdownScript.selectedMp3);
         song.volume = MenuScript.songVolume;
@@ -67,7 +67,7 @@ public class SliderScript : MonoBehaviour
 
 
     // Update is called once per frame
-    void Update()
+    void Update()//updates the slider in the create scene to reflect the time of the song
     {
 
         if (slider.value != songLength)

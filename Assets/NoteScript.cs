@@ -17,7 +17,7 @@ public class NoteScript : MonoBehaviour
     {
         if (moving == true)
         {
-            transform.localPosition -= (Vector3.right * MenuScript.noteSpeed) * Time.deltaTime;
+            transform.localPosition -= (Vector3.right * MenuScript.noteSpeed) * Time.deltaTime;//makes the note move to the left of the world view when the user is in the play scene
         }
     }
 }

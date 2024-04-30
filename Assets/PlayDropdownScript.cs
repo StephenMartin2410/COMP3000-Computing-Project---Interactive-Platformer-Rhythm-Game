@@ -15,7 +15,7 @@ public class PlayDropdownScript : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    void Start()//adds all of the map text files to the dropdown box next to play on the menu screen
     {
         playDropdown = GetComponent<TMP_Dropdown>();
         playDropdown.ClearOptions();
@@ -31,7 +31,7 @@ public class PlayDropdownScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void Update()//assigns the selected map file to play when the user enter the play scene
     {
         selectedMap = playDropdown.options[playDropdown.value].text;
     }

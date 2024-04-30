@@ -14,7 +14,7 @@ public class ChordScript : MonoBehaviour
 
     }
 
-    private void Update()
+    private void Update()//used to check if the user is in the create scene or the playing scene
     {
         if (CreateScript.creating == false)
         {
@@ -22,7 +22,7 @@ public class ChordScript : MonoBehaviour
         }
     }
 
-    public void ChordLogic()
+    public void ChordLogic()//if the user is in the playing scene then the notes will move and be deleted as a miss if they go past a certain point
     {
         if (transform.childCount <= 0)
         {
@@ -40,7 +40,7 @@ public class ChordScript : MonoBehaviour
             {
                 return;
             }
-            if (Mathf.Abs(child.localPosition.x) < pressRange)
+            if (Mathf.Abs(child.localPosition.x) < pressRange)//the user will also be able to hit the notes and earn a score and a multiplier if they hit a combo of notes
             {
                 PlayScript.score += 1 * PlayScript.combo;
                 if (PlayScript.combo < 5)

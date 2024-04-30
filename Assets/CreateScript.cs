@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class CreateScript : MonoBehaviour
 {
-    public GameObject Note;
+    public GameObject Note;//all of the needed variabled
     public GameObject Note1;
     public GameObject Note2;
     public GameObject Note3;
@@ -28,7 +28,7 @@ public class CreateScript : MonoBehaviour
     public int chordNum3;
 
     // Start is called before the first frame update
-    void Start()
+    void Start()//gets rid of the menu music and creates a onclick listener for the create map button
     {
         Destroy(GameObject.Find("Lobby-Time"));
         createButton.onClick.AddListener(() => CreateClick());
@@ -42,7 +42,7 @@ public class CreateScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void Update()//used to escape the scene and also to create notes at the specific point in the song that the player wants
     {
         if (Input.GetKeyUp(KeyCode.Escape))
         {
@@ -59,7 +59,7 @@ public class CreateScript : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown(KeyCode.M))
+        if (Input.GetKeyDown(KeyCode.M))//each one of these functions is used to place notes on the screen for the player and to add the notes to a list of child objects of the specified chord
         {
             chordList.Add(song.time);
             GameObject newNote = Instantiate(Note, Chord.transform);
@@ -98,7 +98,7 @@ public class CreateScript : MonoBehaviour
 
 
     }
-    void CreateClick()
+    void CreateClick()//when the user presses the create map button the game will take the chord lists and create a map file titled after the given mp3
     {
         var c = string.Join(" ", chordList);
         var c1 = string.Join(" ", chord1List);

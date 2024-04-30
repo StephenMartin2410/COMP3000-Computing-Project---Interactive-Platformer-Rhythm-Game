@@ -15,7 +15,7 @@ public class CreateDropdownScript : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    void Start()//adds all of the mp3 files to the dropdown box next to the create button on the menu screen
     {
         createDropdown = GetComponent<TMP_Dropdown>();
         createDropdown.ClearOptions();
@@ -31,7 +31,7 @@ public class CreateDropdownScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void Update()//asigns the mp3 selection for the user
     {
         selectedMp3 = createDropdown.options[createDropdown.value].text;
     }
