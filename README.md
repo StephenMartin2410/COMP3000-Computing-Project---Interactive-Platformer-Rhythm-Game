@@ -1,4 +1,4 @@
-# COMP3000-Computing-Project---Interactive-Platformer-Rhythm-Game
+# COMP3000-Computing-Project---AnimalFretsRhythmGame
 This is the github repository for my comp3000 final year project.
 Link to Gantt Chart - https://tasks.office.com/live.plymouth.ac.uk/Home/PlanViews/kYKWcqry_0uS-18OiXEG-JYAHZWW?Type=PlanLink&Channel=Link&CreatedTime=638493869920120000
 
