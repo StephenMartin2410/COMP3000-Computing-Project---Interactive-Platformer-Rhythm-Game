@@ -63,6 +63,7 @@ public class CreateScript : MonoBehaviour
         {
             chordList.Add(song.time);
             GameObject newNote = Instantiate(Note, Chord.transform);
+            newNote.transform.parent = Chord.transform;
             newNote.transform.localPosition = new Vector2(0, 0);
             chordNum++;
 
@@ -70,24 +71,27 @@ public class CreateScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.N))
         {
             chord1List.Add(song.time);
-            GameObject newNote = Instantiate(Note1, Chord1.transform);
-            newNote.transform.localPosition = new Vector2(0, 0);
+            GameObject newNote1 = Instantiate(Note1, Chord1.transform);
+            newNote1.transform.parent = Chord1.transform;
+            newNote1.transform.localPosition = new Vector2(0, 0);
             chordNum1++;
 
         }
         if (Input.GetKeyDown(KeyCode.B))
         {
             chord2List.Add(song.time);
-            GameObject newNote = Instantiate(Note2, Chord2.transform);
-            newNote.transform.localPosition = new Vector2(0, 0);
+            GameObject newNote2 = Instantiate(Note2, Chord2.transform);
+            newNote2.transform.parent = Chord2.transform;
+            newNote2.transform.localPosition = new Vector2(0, 0);
             chordNum2++;
 
         }
         if (Input.GetKeyDown(KeyCode.V))
         {
             chord3List.Add(song.time);
-            GameObject newNote = Instantiate(Note3, Chord3.transform);
-            newNote.transform.localPosition = new Vector2(0, 0);
+            GameObject newNote3 = Instantiate(Note3, Chord3.transform);
+            newNote3.transform.parent = Chord3.transform;
+            newNote3.transform.localPosition = new Vector2(0, 0);
             chordNum3++;
 
         }

@@ -63,6 +63,7 @@ public class PlayScript : MonoBehaviour
             {
                 AudioClip clip = DownloadHandlerAudioClip.GetContent(www);
                 songData.clip = clip;
+                songDuration = songData.clip.length;
                 songData.Play();
             }
         }
@@ -70,51 +71,53 @@ public class PlayScript : MonoBehaviour
 
     void Start()
     {
-        Debug.Log(PlayDropdownScript.selectedMap);
+        //Debug.Log(PlayDropdownScript.selectedMap);
+        //songData.Play();
+        SliderScript.songPlaying = false;
+        Destroy(GameObject.Find("Lobby-Time"));
         PlayFile(PlayDropdownScript.selectedMap);
-        UnityEngine.Object.Destroy(GameObject.Find("Lobby-Time"));
-        using (StreamReader streamReader = new StreamReader(Application.dataPath + "/MapFolder/" + PlayDropdownScript.selectedMap + ".txt"))
+        Debug.Log("Notespeed: " + MenuScript.noteSpeed);
+        using (StreamReader sr = new StreamReader(Application.dataPath + "/MapFolder/" + PlayDropdownScript.selectedMap + ".txt"))
         {
-            string text = streamReader.ReadLine();
-            distance1 = Array.ConvertAll(text.Split(' '), float.Parse);
-            text = streamReader.ReadLine();
-            distance2 = Array.ConvertAll(text.Split(' '), float.Parse);
-            text = streamReader.ReadLine();
-            distance3 = Array.ConvertAll(text.Split(' '), float.Parse);
-            text = streamReader.ReadLine();
-            distance4 = Array.ConvertAll(text.Split(' '), float.Parse);
+            string line;
+            // Read and display lines from the file until the end of
+            // the file is reached.
+            line = sr.ReadLine();
+            distance1 = Array.ConvertAll(line.Split(' '), float.Parse);
+            line = sr.ReadLine();
+            distance2 = Array.ConvertAll(line.Split(' '), float.Parse);
+            line = sr.ReadLine();
+            distance3 = Array.ConvertAll(line.Split(' '), float.Parse);
+            line = sr.ReadLine();
+            distance4 = Array.ConvertAll(line.Split(' '), float.Parse);
         }
         CreateScript.creating = false;
         NoteScript.moving = true;
         songData.volume = MenuScript.songVolume;
-        songDuration = songData.clip.length;
-        float[] array = distance1;
-        foreach (float num in array)
+        //songData.Play();
+        foreach (float x in distance1)
         {
-            GameObject obj = UnityEngine.Object.Instantiate(Note);
-            obj.transform.parent = Chord.transform;
-            obj.transform.localPosition = new Vector2(num * MenuScript.noteSpeed + 1f, base.transform.position.y);
+            GameObject newNote = Instantiate(Note, Chord.transform);
+            newNote.transform.SetParent(Chord.transform);
+            newNote.transform.localPosition = new Vector2((x * MenuScript.noteSpeed), transform.localPosition.y);
         }
-        array = distance2;
-        foreach (float num2 in array)
+        foreach (float x in distance2)
         {
-            GameObject obj2 = UnityEngine.Object.Instantiate(Note1);
-            obj2.transform.parent = Chord1.transform;
-            obj2.transform.localPosition = new Vector2(num2 * MenuScript.noteSpeed + 1f, base.transform.position.y);
+            GameObject newNote1 = Instantiate(Note1, Chord1.transform);
+            newNote1.transform.SetParent(Chord1.transform);
+            newNote1.transform.localPosition = new Vector2((x * MenuScript.noteSpeed), transform.localPosition.y);
         }
-        array = distance3;
-        foreach (float num3 in array)
+        foreach (float x in distance3)
         {
-            GameObject obj3 = UnityEngine.Object.Instantiate(Note2);
-            obj3.transform.parent = Chord2.transform;
-            obj3.transform.localPosition = new Vector2(num3 * MenuScript.noteSpeed + 1f, base.transform.position.y);
+            GameObject newNote2 = Instantiate(Note2, Chord2.transform);
+            newNote2.transform.SetParent(Chord2.transform);
+            newNote2.transform.localPosition = new Vector2((x * MenuScript.noteSpeed), transform.localPosition.y);
         }
-        array = distance4;
-        foreach (float num4 in array)
+        foreach (float x in distance4)
         {
-            GameObject obj4 = UnityEngine.Object.Instantiate(Note3);
-            obj4.transform.parent = Chord3.transform;
-            obj4.transform.localPosition = new Vector2(num4 * MenuScript.noteSpeed + 1f, base.transform.position.y);
+            GameObject newNote3 = Instantiate(Note3, Chord3.transform);
+            newNote3.transform.SetParent(Chord3.transform);
+            newNote3.transform.localPosition = new Vector2((x * MenuScript.noteSpeed), transform.localPosition.y);
         }
         score = 0;
         combo = 0;
@@ -128,6 +131,7 @@ public class PlayScript : MonoBehaviour
             MenuScript.menuMusicStarted = false;
             SceneManager.LoadScene(0);
         }
+
         songDuration = (int)songData.clip.length - (int)songData.time;
         scoreText.text = "Score: " + score;
         comboText.text = "Combo: " + combo + "X";

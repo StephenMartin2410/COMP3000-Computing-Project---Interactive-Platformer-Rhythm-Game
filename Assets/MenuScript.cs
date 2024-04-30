@@ -8,7 +8,7 @@ public class MenuScript : MonoBehaviour
 {
     public AudioSource menuMusic;
     public static float songVolume = 1;
-    public static float noteSpeed = 4;
+    public static float noteSpeed = 5000;
     public static bool menuMusicStarted = false;
     void Start()
     {

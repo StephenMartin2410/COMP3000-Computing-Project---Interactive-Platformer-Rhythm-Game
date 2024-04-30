@@ -16,7 +16,7 @@ public class ChordScript : MonoBehaviour
 
     private void Update()
     {
-        if (!CreateScript.creating)
+        if (CreateScript.creating == false)
         {
             ChordLogic();
         }
@@ -24,15 +24,15 @@ public class ChordScript : MonoBehaviour
 
     public void ChordLogic()
     {
-        if (base.transform.childCount <= 0)
+        if (transform.childCount <= 0)
         {
             return;
         }
-        Transform child = base.transform.GetChild(0);
-        if (child.localPosition.x < -1f)
+        Transform child = transform.GetChild(0);
+        if (child.localPosition.x < -5f)
         {
             PlayScript.combo = 0;
-            Object.Destroy(child.gameObject);
+            Destroy(child.gameObject);
         }
         else
         {
@@ -42,12 +42,12 @@ public class ChordScript : MonoBehaviour
             }
             if (Mathf.Abs(child.localPosition.x) < pressRange)
             {
-                PlayScript.score += 5 * PlayScript.combo;
+                PlayScript.score += 1 * PlayScript.combo;
                 if (PlayScript.combo < 5)
                 {
                     PlayScript.combo++;
                 }
-                Object.Destroy(child.gameObject);
+                Destroy(child.gameObject);
             }
             else
             {

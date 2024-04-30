@@ -306,7 +306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chordKey: v
-  pressRange: 0.3
+  pressRange: 0.6
 --- !u!1 &295875378
 GameObject:
   m_ObjectHideFlags: 0
@@ -608,7 +608,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chordKey: m
-  pressRange: 0.3
+  pressRange: 0.6
 --- !u!1 &501094469
 GameObject:
   m_ObjectHideFlags: 0
@@ -1122,7 +1122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chordKey: b
-  pressRange: 0.3
+  pressRange: 0.6
 --- !u!1 &1066936465
 GameObject:
   m_ObjectHideFlags: 0
@@ -1172,7 +1172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chordKey: n
-  pressRange: 0.3
+  pressRange: 0.6
 --- !u!1 &1190910826
 GameObject:
   m_ObjectHideFlags: 0

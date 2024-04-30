@@ -15,9 +15,9 @@ public class NoteScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (moving)
+        if (moving == true)
         {
-            base.transform.position -= Vector3.right * MenuScript.noteSpeed * Time.deltaTime;
+            transform.localPosition -= (Vector3.right * MenuScript.noteSpeed) * Time.deltaTime;
         }
     }
 }
